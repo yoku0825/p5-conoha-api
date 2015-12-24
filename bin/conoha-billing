@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use utf8;
+
+use FindBin qw/$Bin/;
+use lib "$Bin/../lib";
+use Net::ConoHa::API;
+
+use Config::Pit;
+
+my $config= pit_get("conoha");
+my $conoha= Net::ConoHa::API->new($config);
+
+print $conoha->billing, "\n";
+
+
+exit 0;
